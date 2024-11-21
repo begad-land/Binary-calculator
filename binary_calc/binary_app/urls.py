@@ -4,6 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path('' ,)
+    path('main' , views.Main.as_view() , name= 'binary'),
 
 ]

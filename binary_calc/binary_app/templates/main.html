@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Operation Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c;  /* Dark background */
+            color: #f0f0f0;  /* Light text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .container {
+            background-color: #2c2c2c;  /* Darker container */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #b3b3b3;  /* Gray text for labels */
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background-color: #3a3a3a;  /* Dark gray input fields */
+            border: 1px solid #4d4d4d;  /* Slightly lighter gray border */
+            border-radius: 5px;
+            color: #f0f0f0;  /* Light text inside inputs */
+            font-size: 16px;
+        }
+
+        input:focus, select:focus, button:focus {
+            outline: none;
+            border-color: #8e44ad;  /* Purple border on focus */
+        }
+
+        button {
+            background-color: #9b59b6;  /* Purple button */
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #8e44ad;  /* Darker purple on hover */
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #3a3a3a;  /* Dark gray background for result */
+            border: 1px solid #4d4d4d;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Binary Operation Form</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Operation Field -->
+            <div class="form-group">
+                <label for="id_operation">Operation</label>
+                {{ form.operation }}
+            </div>
+            
+            <!-- Number Field -->
+            <div class="form-group">
+                <label for="id_number">Insert your number</label>
+                {{ form.number }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Show Result</button>
+        </form>
+
+        <!-- Result Display -->
+        {% if result %}
+        <div class="result">
+            <p>Result: {{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
